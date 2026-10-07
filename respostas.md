@@ -47,13 +47,15 @@ No meu projeto, usei -p 7036:80, conforme minha matrícula.
 ## Parte 4 · Primeiro docker-compose
 
 7. Escreva os dois comandos `docker run` que fariam o mesmo que o seu `docker-compose.yml`.
+docker run -d --name portal --restart unless-stopped -p 8036:80 bh2731/viaserra-portal:1.0-26174736 e docker run -d --name manutencao --restart unless-stopped -p 7036:80 avaliacao-docker-viaserra-manutencao:latest
+
 
 8. Qual comando derruba os dois containers de uma vez?
-
+docker compose down
 ## Verificador
 
 9. Código de conclusão impresso pelo verificador:
-
+VIASERRA-26174736-5DFE585C
 ```
 (cole aqui)
 ```
