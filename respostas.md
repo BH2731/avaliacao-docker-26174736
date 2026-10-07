@@ -1,9 +1,9 @@
 # Respostas · Avaliação Prática de Docker · ViaSerra Transportes (Turma C)
 
-Nome:
-Matrícula:
-Usuário do GitHub:
-Usuário do Docker Hub:
+Nome: Bernardo Henrique Silva Corte
+Matrícula: 26174736
+Usuário do GitHub: bh2731
+Usuário do Docker Hub: bh2731
 
 Responda com as suas palavras e com o que aconteceu na SUA máquina. Resposta curta e certa vale mais
 do que texto longo copiado. Resposta que contradiz o seu próprio Dockerfile vale zero.
@@ -12,14 +12,21 @@ do que texto longo copiado. Resposta que contradiz o seu próprio Dockerfile val
 
 1. Qual imagem base você usou e qual o tamanho final da imagem do portal (saída de `docker images`)?
 
+Usei nginx. Já o tamanho final da imagem do portal foi 21 MB em CONTENT SIZE.
+
 2. Em qual pasta do container o Nginx procura os arquivos do site? Mostre o comando que você usou para
    conferir que o `index.html` está lá dentro.
+
+O nginx procura os arquivos em "/usr/share/nginx/html/" e o comando é: "docker exec teste-portal ls -l /usr/share/nginx/html/"
 
 ## Parte 2 · Docker Hub
 
 3. Nome completo da imagem publicada e link público do repositório no Docker Hub.
+bh2731/viaserra-portal:1.0-26174736 e https://hub.docker.com/r/bh2731/viaserra-portal
+
 
 4. Se você mudar o HTML, quais comandos precisa rodar para que a versão nova chegue ao Docker Hub?
+Depois de salvar a alteração no html, preciso reconstruir a imagem e mandar novamnete ao docker hub com: "docker build -t bh2731/viaserra-portal:1.0-26174736 ./portal" e "docker push bh2731/viaserra-portal:1.0-26174736"
 
 ## Parte 3 · Página de manutenção
 
