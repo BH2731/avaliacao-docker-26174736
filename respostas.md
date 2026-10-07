@@ -34,11 +34,15 @@ Depois de salvar a alteração no html, preciso reconstruir a imagem e mandar no
 
 | # | Instrução | O que estava errado | O que você viu acontecer | Como corrigiu |
 |---|---|---|---|---|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
+| 1 | COPY pagina/ . | A pasta pagina não existe no pacote. | O build falhou com "/pagina": not found. | Troquei por COPY site/ . |
+| 2 | CMD ["nginx"] | O Nginx inicia em segundo plano, encerrando o processo principal do container. | O container parou com Exited (0). | Usei CMD ["nginx", "-g", "daemon off;"]. |
+| 3 | WORKDIR /usr/share/nginx | O COPY usava essa pasta como destino, mas o Nginx serve os arquivos da subpasta html. | Apareceu "Welcome to nginx!" em localhost:7036. | Troquei o WORKDIR para /usr/share/nginx/html. |
 
 6. Qual a diferença entre `-p 7042:80` e `-p 80:7042` no `docker run`? Qual dos dois números é a porta do container?
+
+Em -p 7042:80, a porta 7042 do computador encaminha para a porta 80 do container. Em -p 80:7042, a porta 80 do computador encaminha para a porta 7042 do container. O número depois dos dois pontos é a porta do container.
+
+No meu projeto, usei -p 7036:80, conforme minha matrícula.
 
 ## Parte 4 · Primeiro docker-compose
 
